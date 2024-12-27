@@ -295,3 +295,7 @@ You can customize:
 - Query engine parameters
 - LLM and embedding models
 - Semantic splitting parameters
+
+## TODOs
+
+- [ ] Add multimodal support for the report generation agent
