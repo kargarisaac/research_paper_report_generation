@@ -299,3 +299,4 @@ You can customize:
 ## TODOs
 
 - [ ] Add multimodal support for the report generation agent
+- [ ] Add the feature to get the name/link/pdf of a paper or several papers and generate a summary and report for them
