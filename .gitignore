@@ -1,0 +1,4 @@
+.env
+research_results/*
+*.html
+lib/*
