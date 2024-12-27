@@ -1,11 +1,14 @@
 
 # Research Paper Report Generation
 
-This project aims to generate a report on a set of research papers using a combination of RAG and agentic workflows. 
+A powerful automated research assistant that leverages LlamaIndex, OpenAI, and ArXiv to download, analyze, and synthesize academic papers into comprehensive reports.
 
-This project is based on an example from the LlamaIndex library with additional modifications.
+This system combines Retrieval-Augmented Generation (RAG) with intelligent agents to automatically process research papers and generate insightful reports, saving researchers valuable time while maintaining high-quality analysis.
 
-## Overview
+Built on LlamaIndex's foundation, this project extends the core functionality with enhanced features for academic research workflows.
+
+## Architecture
+
 
 ### Setup and Index Generation Workflow
 ```mermaid
@@ -170,3 +173,125 @@ flowchart TB
     class ContentGeneration,Processing,llm_process,index_process query
     class ReportFormatting,intro,sections,subsections,conclusion,final format
 ```
+
+## Features
+
+- Automated research paper download from ArXiv
+- PDF parsing and text extraction using LlamaParse
+- Metadata extraction (authors, companies, AI tags)
+- Vector-based paper indexing
+- Intelligent query processing
+- Automated report generation with customizable outlines
+
+## Prerequisites
+
+- Python 3.11+
+- OpenAI API key
+- LlamaParse API key
+
+## Required Libraries
+
+```bash
+pip install nest-asyncio python-dotenv llama-index arxiv llama-parse pydantic
+```
+
+## Environment Setup
+
+Create a `.env` file in your project root with:
+
+```plaintext
+OPENAI_API_KEY=your_openai_api_key
+LLAMA_CLOUD_API_KEY=your_llamaparse_api_key
+```
+
+## Project Structure
+
+The output of the system is a report in the `research_results` directory.
+```
+research_results/
+├── {topic_names}/
+│   ├── pdfs/           # Downloaded research papers
+│   ├── storage/        # Vector index storage
+│   └── report.md       # Generated report
+```
+
+## Usage
+
+1. Configure Research Topics in the `main.ipynb` file.
+```python
+research_paper_topics = ["Your", "Topics"]
+num_results_per_topic = 2  # Number of papers per topic
+```
+
+2. Define Report Outline in the `main.ipynb` file.
+```python
+outline = """
+# Your Report Title
+
+## 1. Introduction
+
+## 2. Main Sections
+2.1. Subsection One
+2.2. Subsection Two
+
+## 3. Conclusion
+"""
+```
+
+3. Run the Analysis:
+```python
+# Initialize the agent
+agent = ReportGenerationAgent(
+    query_engine=query_engine,
+    llm=llm,
+    verbose=True
+)
+
+# Generate report
+report = await agent.run(outline=outline)
+```
+
+## System Components
+
+### 1. Paper Collection
+- Uses ArXiv API to search and download recent papers
+- Automatically saves PDFs to local storage
+
+### 2. Document Processing
+- Converts PDFs to markdown format using LlamaParse
+- Extracts metadata including authors and affiliations
+- Generates embeddings for semantic search
+
+### 3. Indexing
+- Creates semantic splits of documents
+- Builds vector store index for efficient retrieval
+- Persists index to disk for reuse
+
+### 4. Report Generation
+- Processes custom report outlines
+- Generates targeted queries for each section
+- Classifies queries as LLM-based or index-based
+- Compiles comprehensive research reports
+
+## Query Engine Configuration
+
+The system uses a hybrid query engine with:
+- Dense similarity search (top k=10)
+- Sparse similarity search (top k=10)
+- Reranking enabled (top n=5)
+- Chunk-based retrieval
+
+## Workflow Visualization
+
+The system includes two workflow visualizations:
+- `report_generation_agent.html`: Shows all possible workflow paths
+- `report_generation_agent_execution.html`: Shows the most recent execution path
+
+## Customization
+
+You can customize:
+- Research topics and paper count
+- Report outline structure
+- Query engine parameters
+- LLM and embedding models
+- Semantic splitting parameters
