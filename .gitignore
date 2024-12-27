@@ -2,3 +2,4 @@
 research_results/*
 *.html
 lib/*
+.ipynb_checkpoints/
