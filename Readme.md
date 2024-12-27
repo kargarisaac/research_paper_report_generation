@@ -300,3 +300,12 @@ You can customize:
 
 - [ ] Add multimodal support for the report generation agent
 - [ ] Add the feature to get the name/link/pdf of a paper or several papers and generate a summary and report for them
+
+
+## Resources
+
+- [LlamaIndex](https://www.llamaindex.ai/)
+- [LlamaParse](https://www.llamaparse.com/)
+- [ArXiv](https://arxiv.org/)
+- [OpenAI](https://openai.com/)
+- [LlamaIndex Examples](https://github.com/run-llama/llamacloud-demo/blob/main/examples/report_generation/research_paper_report_generation.ipynb)
