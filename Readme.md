@@ -1,4 +1,11 @@
 
+# Research Paper Report Generation
+
+This project aims to generate a report on a set of research papers using a combination of RAG and agentic workflows. 
+
+This project is based on an example from the LlamaIndex library with additional modifications.
+
+## Overview
 
 ```mermaid
 flowchart TB
