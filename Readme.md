@@ -304,8 +304,5 @@ You can customize:
 
 ## Resources
 
-- [LlamaIndex](https://www.llamaindex.ai/)
-- [LlamaParse](https://www.llamaparse.com/)
-- [ArXiv](https://arxiv.org/)
-- [OpenAI](https://openai.com/)
+- [LlamaParse](https://docs.llamaindex.ai/en/stable/llama_cloud/llama_parse/)
 - [LlamaIndex Examples](https://github.com/run-llama/llamacloud-demo/blob/main/examples/report_generation/research_paper_report_generation.ipynb)
